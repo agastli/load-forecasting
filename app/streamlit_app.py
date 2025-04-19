@@ -105,5 +105,8 @@ else:
 # --- Footer ---
 st.sidebar.markdown("---")
 st.sidebar.caption("App by Mohamed Sadok Gastli • April 2025")
-st.sidebar.markdown("[GitHub](https://github.com/agastli) • [LinkedIn](https://linkedin.com)")
-
+st.sidebar.markdown(
+    "🔗 [GitHub](https://github.com/msgastli)  \n"
+    "💼 [LinkedIn](https://www.linkedin.com/in/msgastli)  \n"
+    "📧 [Email](mailto:msgastli@gmail.com)"
+)
