@@ -63,4 +63,10 @@ streamlit run app/streamlit_app.py
 ---
 
 **Author:** Mohamed Sadok Gastli  
-Built with 💡 by [CodeGPT](https://chatgpt.com/g/g-odWlfAKWM-lega)
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://msadok-load-forecasting.streamlit.app/)
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+**Author:** [Mohamed Sadok Gastli](mailto:msgastli@gmail.com)  
+💼 [LinkedIn](https://www.linkedin.com/in/msgastli) | 🧠 [GitHub](https://github.com/msgastli)
