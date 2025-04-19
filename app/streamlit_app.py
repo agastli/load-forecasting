@@ -3,24 +3,17 @@ import pandas as pd
 import joblib
 from datetime import datetime
 
-st.set_page_config(page_title="Electricity Load Predictor", layout="wide")
+st.set_page_config(page_title="Electricity Load Predictor", layout="centered")
 
-# Sidebar UI
-st.sidebar.title("⚙️ App Settings")
-st.sidebar.markdown("Upload your forecast CSV file to predict electricity load.")
+st.title("Electricity Load Forecasting App")
+st.write("Upload forecasted weather data to predict next day's load.")
 
-uploaded_file = st.sidebar.file_uploader("Upload Forecast CSV", type=["csv"])
-show_raw = st.sidebar.checkbox("Show Raw Uploaded Data")
-
-st.title("⚡ Electricity Load Forecasting Dashboard")
-st.markdown("This app uses a machine learning model to predict electricity load based on weather forecasts.")
+uploaded_file = st.file_uploader("Upload your weather forecast CSV file", type=["csv"])
 
 if uploaded_file:
     input_df = pd.read_csv(uploaded_file, parse_dates=['event_timestamp'])
-
-    if show_raw:
-        st.subheader("📄 Raw Uploaded Data")
-        st.dataframe(input_df)
+    st.write("Preview of uploaded data:")
+    st.dataframe(input_df.head())
 
     # Load model and features
     model = joblib.load("models/random_forest_model.joblib")
@@ -41,25 +34,20 @@ if uploaded_file:
         'predicted_load_MW': predictions
     })
 
-    # Display key stats in columns
-    st.subheader("📊 Prediction Summary")
-    col1, col2 = st.columns(2)
-    col1.metric("Average Load (MW)", f"{results['predicted_load_MW'].mean():.2f}")
-    col2.metric("Peak Load (MW)", f"{results['predicted_load_MW'].max():.2f}")
+    # Summary Stats
+    st.subheader("Prediction Summary")
+    st.metric("Average Load (MW)", f"{results['predicted_load_MW'].mean():.2f}")
+    st.metric("Peak Load (MW)", f"{results['predicted_load_MW'].max():.2f}")
 
-    # Chart output
-    st.subheader("📈 Load Forecast Over Time")
+    # Line Chart
+    st.subheader("Predicted Load Over Time")
     st.line_chart(results.set_index('event_timestamp'))
 
-    # Download button
+    # Download Button
     csv = results.to_csv(index=False).encode('utf-8')
-    st.download_button("⬇️ Download Forecast as CSV", csv, "predicted_load.csv", "text/csv")
+    st.download_button("Download Predictions as CSV", csv, "predicted_load.csv", "text/csv")
 
-    st.success("✅ Prediction complete and ready to download.")
-
-else:
-    st.info("Please upload a CSV file from the sidebar to begin.")
+    st.success("Prediction complete and ready to download!")
 
 st.sidebar.markdown("---")
-st.sidebar.caption("App by Adel Gastli · Built with ❤️ using Streamlit & CodeGPT")
-st.sidebar.caption("© Mohamed Sadok Gastli, 2025")
+st.sidebar.write("Built with by CodeGPT")
