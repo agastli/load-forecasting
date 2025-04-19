@@ -62,5 +62,5 @@ streamlit run app/streamlit_app.py
 
 ---
 
-**Author:** Adel Gastli  
+**Author:** Mohamed Sadok Gastli  
 Built with 💡 by [CodeGPT](https://chatgpt.com/g/g-odWlfAKWM-lega)
