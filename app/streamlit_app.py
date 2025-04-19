@@ -61,4 +61,4 @@ else:
     st.info("Please upload a CSV file from the sidebar to begin.")
 
 st.sidebar.markdown("---")
-st.sidebar.caption("App by Mohamed Sadok Gastli · Built with ❤️ using Streamlit & CodeGPT")
+st.sidebar.caption("App by Mohamed Sadok Gastli- April 2025")
