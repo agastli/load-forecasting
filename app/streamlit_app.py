@@ -62,3 +62,4 @@ else:
 
 st.sidebar.markdown("---")
 st.sidebar.caption("App by Adel Gastli · Built with ❤️ using Streamlit & CodeGPT")
+st.sidebar.caption("© Mohamed Sadok Gastli, 2025")
